@@ -56,3 +56,23 @@ export class HeroesController {
 # the nest generate command integrates contollers and module that share the same namespace 
 # the command below integrates the existing messages module by automatically importing the MessagesController  into the MessagesModule once the command below is executed, --flat for no parent contoller being created
 nest generate controller messages/messages --flat
+
+
+# Managing Dependencies as Interfaces
+# 1. Define a Interface for a service 
+# 2. create a class variable of the  typed interface(Repository) 
+# 3. Instantiate interface as method input variable in the constructor within the service 
+
+interface Repository {
+  findOne(id: string);
+  findAll();
+  create(content: string)
+}
+
+export class MeassagesService {
+  messagesRepo: Repository;
+
+  constructor(repo: Repository){
+    this.messagesRepo = repo
+  }
+}
