@@ -76,3 +76,67 @@ export class MeassagesService {
     this.messagesRepo = repo
   }
 }
+
+
+### Typescript ###
+
+# Removing the any type Annotation
+const json = {"x":10, "y": 20 }
+const coordinates: {x: number; y: number;} = JSON.parse(json)
+
+
+# Delayed initialization Annotation
+let words = ['red', 'green', 'blue'];
+let foundWord: boolean;
+
+for (let 1 = 0; i < words.length; i++){
+  if(words[i] === 'green'){
+    foundWord = true;
+  }
+}
+
+# Optional type inference with default value Annotation
+let numbers = [-10, -1, 12]
+let numberAboveZero: boolean | number = false;
+
+for ( let i = 0; i < numbers.length;  i++){
+  if(numbers[i] > 0 ){
+    numberAboveZero = numbers[i];
+  }
+}
+
+# Classes 
+class Car {}
+let cat: Car = new Car()
+
+# Object literal 
+let point: { x: number; y: number; } = {
+  x: 10,
+  y: 10,
+}
+
+# Deconstruction with Annotations
+const todayWeather = {
+  date: new Date(),
+  weather: 'sunny'
+}
+
+#  { destructoring } : { Annotations }
+const logWeather =  ({date, weather}:{ date: Date, weather: string}): void  {
+  console.log()
+}
+
+# Explicit destructoring 
+const profile = {
+  name: 'Chadd',
+  age: 30, 
+  coords: {
+    lat: 0,
+    lng: 15,
+  }
+  setAge(age : number):void {
+    this.age = age;
+  }
+}
+
+const { age }: { age: number} = profile
