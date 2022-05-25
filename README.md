@@ -77,6 +77,47 @@ export class MeassagesService {
   }
 }
 
+# Guards
+# Instantiate the Guard as decorator 
+
+export const CurrentUser = createParamDecorator(
+# ExecutionContext normalizes the request type http, websocket, rpc 
+    (data: any, context: ExecutionContext) =>{
+        
+    }
+)
+
+import { CurrentUser } from './decorators/current-user.decorator';
+
+# Locally scoped interceptors
+# import the relevant inceptor
+ import { CurrentUserInceptor } from './interceptors/current-user.inceptor';
+
+
+# interceptor being applied to the UserControlller locally
+@UseInterceptors(CurrentUserInceptor)
+export class UsersController {
+
+# Global Inceptors are applied via APP_INCEPTOR in the users module
+@Module({
+  imports: [TypeOrmModule.forFeature([User])],
+  controllers: [UsersController],
+  providers: [
+    UsersService, 
+    AuthService, 
+    CurrentUserInceptor,
+# Globally scoped interceptor
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: CurrentUserInceptor
+    }
+  ],
+})
+
+#  implements middleware gaurd around protected url 
+  whoAmI(@CurrentUser() session: any) {
+    return this.usersService.findOne(session.userId);
+  }
 
 ### Typescript ###
 
