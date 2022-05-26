@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from './../src/app.module';
-import { setupApp } from './../src/setup-app';
+// import { setupApp } from './../src/setup-app';
 
 describe('Authentication System (e2e)', () => {
   let app: INestApplication;
@@ -13,21 +13,21 @@ describe('Authentication System (e2e)', () => {
     }).compile();
 
     app = moduleFixture.createNestApplication();
-    setupApp(app)
+    // setupApp(app)
     await app.init();
   });
 
   it('it handles a signup request', async () => {
-    const email = 'adadkrirfnrd@rnf.com';
+    const email = 'adadkrdirfsssnrd@rdddnf.com';
 
     return request(app.getHttpServer())
       .post('/auth/signup')
-      .send({ email: email, password: 'addianbcjad' })
+      .send({ email: email, password: 'addianddddbcjad' })
       .expect(201)
       .then((res) => {
         const { id, email } = res.body;
         expect(id).toBeDefined();
-        expect(id).toEqual(email);
+        expect(email).toEqual(email);
       });
   });
 });
