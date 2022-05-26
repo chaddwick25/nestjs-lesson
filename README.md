@@ -181,3 +181,12 @@ const profile = {
 }
 
 const { age }: { age: number} = profile
+
+# Tuple 
+# type alias annotations
+type Drink = [string, boolean, number];
+
+# implementations 
+const pepsi: Drink = ['brown', true, 40];
+const sprite: Drink = ['clear', true, 40];
+const tea: Drink = ['brown' false, 0];
