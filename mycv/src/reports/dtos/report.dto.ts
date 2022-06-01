@@ -23,7 +23,7 @@ export class ReportDto {
     
 
     //recieves the entite un-serialized object then returns the userId
-    @Transform(({obj}) =>obj.user.id)
+    @Transform(({ obj }) => obj.user.id)
     @Expose()
     userId: number;
 }
