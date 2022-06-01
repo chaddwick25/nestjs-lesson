@@ -5,7 +5,7 @@ import {
  ManyToOne,
 } from "typeorm";
 
-import { User } from '../users/user.entity'
+import { User } from '../users/user.entity';
 
 @Entity()
 export class Report {
