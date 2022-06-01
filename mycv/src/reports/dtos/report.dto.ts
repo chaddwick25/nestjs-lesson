@@ -18,6 +18,8 @@ export class ReportDto {
     model: string;
     @Expose()
     mileage: number;
+    @Expose()
+    approved: boolean;
     
 
     //recieves the entite un-serialized object then returns the userId

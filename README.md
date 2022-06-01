@@ -190,3 +190,11 @@ type Drink = [string, boolean, number];
 const pepsi: Drink = ['brown', true, 40];
 const sprite: Drink = ['clear', true, 40];
 const tea: Drink = ['brown' false, 0];
+
+
+# Associations with Nest and TypeORM 
+
+Figure out what kind assocaiation we are modeling 
+Add the appropropriate decorators to our related entities 
+Associate the records when one is created 
+Apply a serializer to limit info shared 
