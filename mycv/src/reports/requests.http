@@ -4,10 +4,10 @@ POST http://localhost:3000/reports
 content-type: application/json
 
 {
-    "make": "ddddd",
-    "model": "Londondondon",
+    "make": "toyota",
+    "model": "corrolla",
     "year": 1980,
-    "mileage": 100000,
+    "mileage": 2000,
     "lng": 0,
     "lat": 0,
     "price" : 500000
@@ -20,3 +20,7 @@ content-type: application/json
 {
     "approved": true
 }
+
+### Get an estimate for a existing vechile 
+
+GET http://localhost:3000/reports?make=toyota&model=corrolla&lng=0&lat=0&mileage=200&year=1980

@@ -192,6 +192,17 @@ const sprite: Drink = ['clear', true, 40];
 const tea: Drink = ['brown' false, 0];
 
 
+
+#  append the Express request interface  with a DTO named currentUser
+declare global {
+  namespace Express {
+    interface Request {
+      currentUser?: User;
+    }
+  }
+}
+
+
 # Associations with Nest and TypeORM 
 
 Figure out what kind assocaiation we are modeling 
